@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 25th Birthday My Love ❤️</title>
+  <meta name="theme-color" content="#ff4d6d" />
+  <style>
+    :root{
+      --rose:#e11d48;         /* deep rose */
+      --rose-2:#ff4d6d;       /* bright rose */
+      --pink:#ff8fab;         /* soft pink */
+      --light:#fff0f5;        /* lavender blush */
+      --bg:#1b0b10;           /* very dark wine */
+      --gold:#ffd3a3;         /* warm glow */
+      --white:#ffffff;
+      --blur:24px;
+    }
+
+    *{box-sizing:border-box; margin:0; padding:0}
+    html,body{height:100%;}
+    body{
+      margin:0; font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--white);
+      background: radial-gradient(1200px 800px at 20% 10%, #2a0f19, transparent),
+                  radial-gradient(1000px 700px at 80% 0%, #3a0f1d, transparent),
+                  linear-gradient(180deg, #1b0b10 0%, #12070b 100%);
+      overflow-x:hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Soft ambient glow dots */
+    .glow-layer::before, .glow-layer::after{
+      content:""; position:fixed; inset:0; pointer-events:none; mix-blend-mode:screen;
+      background:
+        radial-gradient(120px 120px at 10% 20%, rgba(255,77,109,.15), transparent 60%),
+        radial-gradient(160px 160px at 80% 10%, rgba(255,143,171,.12), transparent 60%),
+        radial-gradient(220px 220px at 50% 90%, rgba(255,211,163,.10), transparent 60%);
+      filter:blur(0.5px);
+    }
+
+    header.hero{
+      position:relative; min-height:100vh; display:grid; place-items:center; text-align:center; padding:1.25rem;
+      overflow:hidden;
+    }
+
+    .hero h1{
+      font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+      line-height:1.2; margin:0 0 1rem; letter-spacing:0.5px;
+      text-shadow: 0 0 10px rgba(255,77,109,.6), 0 0 20px rgba(255,143,171,.4);
+      animation: pulseGlow 3.5s ease-in-out infinite;
+      padding:0 1rem;
+      word-break: break-word;
+      max-width:100vw;
+    }
+    @keyframes pulseGlow{0%,100%{text-shadow:0 0 10px rgba(255,77,109,.55),0 0 20px rgba(255,143,171,.35)}50%{text-shadow:0 0 20px rgba(255,77,109,.95),0 0 40px rgba(255,143,171,.75)}}
+
+    .typing{ display:inline-block; border-right:2px solid var(--gold); white-space:nowrap; overflow:hidden }
+
+    .sub{
+      font-size:clamp(0.9rem,1.2vw + 0.6rem,1.3rem); opacity:.9; max-width:780px; margin-inline:auto;
+      padding:0 1rem;
+    }
+
+    .btn-primary{ 
+      background: linear-gradient(135deg, var(--rose) 0%, var(--rose-2) 60%, #ff7aa2 100%);
+      color:white; border:none; padding:0.9rem 1.2rem; border-radius:999px; cursor:pointer; font-weight:600;
+      box-shadow:0 10px 25px rgba(255,77,109,.35), inset 0 0 0 1px rgba(255,255,255,.2);
+      transform:translateY(0); transition:transform .2s ease, box-shadow .2s ease, filter .2s ease; backdrop-filter:blur(4px);
+      font-size: 1rem;
+      -webkit-appearance: none;
+    }
+    .btn-primary:hover, .btn-primary:focus{ transform:translateY(-2px); box-shadow:0 14px 32px rgba(255,77,109,.45)}
+    .btn-primary:active{ transform:translateY(0); }
+    button{ border:none; background:none; cursor:pointer; }
+
+    /* Petals */
+    .petal{ position:fixed; top:-10vh; width:18px; height:18px; background:radial-gradient(circle at 30% 30%, #fff, #ffe1ea 58%, #ff94b6 62%, #e11d48 100%);
+      border-radius: 60% 40% 70% 30% / 60% 30% 70% 40%; filter: drop-shadow(0 4px 8px rgba(255,77,109,.35)); opacity:.9; pointer-events:none;
+      animation: fall linear forwards, sway ease-in-out infinite;
+    }
+    @keyframes fall{ to{ transform:translateY(120vh) rotate(360deg)} }
+    @keyframes sway{ 0%,100%{ margin-left:-8px } 50%{ margin-left:8px } }
+
+    /* Sections */
+    section{ padding: 4rem 1.25rem; position:relative }
+    .container{ width:min(1100px, 95%); margin:0 auto }
+    .section-title{ font-size:clamp(1.6rem,2.2vw + 1rem,2.4rem); margin:.3rem 0 1.25rem; text-align:center }
+    .section-sub{ text-align:center; opacity:.9; max-width:720px; margin:0 auto 2rem }
+
+    /* Gallery */
+    .gallery{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px }
+    @media (min-width:640px){ .gallery{ grid-template-columns:repeat(3,1fr); gap:14px } }
+    @media (min-width:980px){ .gallery{ grid-template-columns:repeat(4,1fr); gap:16px } }
+    .card{
+      position:relative; border-radius:16px; overflow:hidden; aspect-ratio:3/4; cursor:pointer; 
+      box-shadow: 0 12px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06);
+      transform:translateZ(0);
+    }
+    .card img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.05) contrast(1.02) }
+    .card::after{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(27,11,16,.55), transparent 40%)}
+    .card:hover{ outline:2px solid rgba(255,143,171,.45); outline-offset:2px }
+
+    /* Lightbox */
+    .lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.72); backdrop-filter: blur(4px);
+      display:none; align-items:center; justify-content:center; padding: 1.2rem; z-index:60 }
+    .lightbox.open{ display:flex }
+    .lightbox img{ max-width:92vw; max-height:80vh; border-radius:18px; box-shadow:0 20px 60px rgba(0,0,0,.6) }
+    .lightbox .close{ position:absolute; top:14px; right:14px; background:rgba(0,0,0,.45); border:none; color:white; width:42px; height:42px; border-radius:999px; font-size:22px; cursor:pointer }
+
+    /* Interactive cards */
+    .grid-3{ display:grid; gap:16px }
+    @media (min-width:768px){ .grid-3{ grid-template-columns: repeat(3, 1fr) } }
+    @media (min-width:1024px){ .grid-4{ grid-template-columns: repeat(4, 1fr) } }
+
+    .card-int{ background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:1.2rem; box-shadow: 0 12px 28px rgba(0,0,0,.35) }
+    .card-int h3{ margin:.2rem 0 0.6rem }
+
+    .rose-button{ display:inline-flex; align-items:center; gap:.6rem; border:none; border-radius:999px; padding:.7rem 1rem; cursor:pointer;
+      background: radial-gradient(120% 120% at 100% 0%, #ff8fab 0%, #ff4d6d 60%, #e11d48 100%);
+      color:white; font-weight:600; box-shadow:0 10px 24px rgba(255,77,109,.38);
+      font-size: 1rem;
+    }
+    .hidden-note{ display:none; margin-top:.8rem; font-style:italic; line-height:1.6 }
+    .hidden-note.show{ display:block; animation: fadeIn .6s ease both }
+    @keyframes fadeIn{ from{ opacity:0; transform:translateY(6px)} to{ opacity:1; transform:translateY(0)} }
+
+    .quiz{ display:grid; gap:.5rem }
+    .quiz button{ margin-top:.6rem }
+    .quiz .result{ min-height:1.6em; margin-top:.5rem; font-weight:600 }
+
+    .counter{ font-size:clamp(2rem,4.5vw + .4rem,3.4rem); font-weight:800; text-align:center; letter-spacing:1px }
+
+    /* Love Calculator */
+    .love-calculator {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .love-meter {
+      height: 24px;
+      background: rgba(255,255,255,.1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .love-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff4d6d, #ff8fab);
+      width: 0%;
+      transition: width 0.8s ease-out;
+      border-radius: 12px;
+    }
+    .love-percent {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: bold;
+      text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    }
+    .love-message {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      min-height: 2.4rem;
+    }
+
+    /* Special message */
+    .message{ max-width:880px; margin:0 auto; background:linear-gradient(180deg, rgba(255,77,109,.12), rgba(255,255,255,.03));
+      border:1px solid rgba(255,143,171,.25); padding:1.5rem; border-radius:20px; box-shadow:0 14px 36px rgba(255,77,109,.18) }
+    .message p{ font-size:1.1rem; line-height:1.8; margin:0 }
+
+    /* Final surprise */
+    .surprise-wrap{ text-align:center; margin-top:1.6rem }
+    .burst-area{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:70 }
+    .overlay-text{ position:fixed; inset:0; display:none; place-items:center; z-index:75; background:rgba(0,0,0,.35); backdrop-filter: blur(2px) }
+    .overlay-text.show{ display:grid; animation: fadeIn .5s ease both }
+    .overlay-text h2{ font-size:clamp(2rem,5vw + .6rem,4rem); text-align:center; margin:0; text-shadow:0 0 16px rgba(255,77,109,.7) }
+
+    /* Heart particle */
+    .heart{ position:absolute; width:16px; height:16px; transform:rotate(45deg); background: var(--rose-2); box-shadow: 0 0 16px rgba(255,77,109,.6);
+      animation: rise 1.4s ease-out forwards }
+    .heart::before,.heart::after{ content:""; position:absolute; width:16px; height:16px; background:inherit; border-radius:50% }
+    .heart::before{ left:-8px }
+    .heart::after{ top:-8px }
+    @keyframes rise{ to{ transform:translateY(-120px) rotate(45deg); opacity:0 } }
+
+    /* Kiss Counter */
+    .kiss-counter {
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+    .kiss-btn {
+      background: linear-gradient(135deg, #ff4d6d, #ff8fab);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255,77,109,.4);
+      transition: transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .kiss-btn:hover {
+      transform: scale(1.1);
+    }
+    .kiss-count {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+      color: var(--rose-2);
+    }
+
+    /* Footer */
+    footer{ text-align:center; padding:2rem 1rem 4rem; opacity:.8 }
+
+    /* Accessibility helper (skip link) */
+    .skip{ position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden }
+    .skip:focus{ position:static; width:auto; height:auto; padding:.5rem; background:#000; color:#fff }
+    
+    /* Radio buttons */
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    /* Textarea */
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      color: white;
+      font-family: inherit;
+      resize: vertical;
+      min-height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="glow-layer" aria-hidden="true"></div>
+
+  <!-- Background music: replace src with your mp3 path (same folder or hosted). -->
+  <audio id="bg-music" loop>
+    <source src="assets/music_hbd.mpeg" type="audio/mpeg">
+  </audio>
+
+  <header class="hero" role="banner">
+    <div>
+      <h1><span class="typing" id="typing">Happy 25th Birthday My Love ❤️</span></h1>
+      <p class="sub">To the rose of my life — may your day be filled with laughter, sparkle, and endless love. 🌹</p>
+      <div style="margin-top:1.2rem">
+        <button class="btn-primary" id="scrollBtn" aria-label="Scroll to surprises">Discover Our Memories</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" role="main">
+    <!-- Photo Gallery -->
+    <section id="gallery">
+      <div class="container">
+        <h2 class="section-title">Our Rose-Tinted Moments 🌹</h2>
+       
+        <div class="gallery" id="galleryGrid">
+          <!-- Replace data URLs with your actual image paths (e.g., images/1.jpg). -->
+          <div class="card"><img alt="Your Photo 1" src="assets/bnglr.jpg" /></div>
+          <div class="card"><img alt="Your Photo 2" src="assets/WhatsApp Image 2025-08-16 at 18. (2).jpg" /></div>
+          <div class="card"><img alt="Your Photo 3" src="assets/IMG_20220227_085917.jpg" /></div>
+          <div class="card"><img alt="Your Photo 4" src="assets/gibli.jpg" /></div>
+          <div class="card"><img alt="Your Photo 5" src="assets/mrg.jpg" /></div>
+          <div class="card"><img alt="Your Photo 6" src="assets/hand.jpg" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Sections -->
+    <section id="interactive">
+      <div class="container">
+        <h2 class="section-title">Little Interactive Surprises ✨</h2>
+        <div class="grid-3">
+          <!-- Click-the-Rose Surprise -->
+          <div class="card-int">
+            <h3>Click the Rose 🌹</h3>
+            <p>Tap the rose to reveal a little love note.</p>
+            <button class="rose-button" id="roseBtn" aria-expanded="false" aria-controls="loveNote">
+              <!-- rose svg -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 7c0-2.761-2.239-5-5-5-1.84 0-3.44 1.005-4.3 2.5C7.78 4.18 7 5.5 7 7c0 1.657 1.343 3 3 3 .507 0 .983-.127 1.405-.35C11.146 10.53 11 11.25 11 12c0 3.314 2.686 6 6 6h1v-1c0-3.866-3.134-7-7-7-.75 0-1.47.146-2.15.405C8.873 9.983 9 9.507 9 9c0-1.657-1.343-3-3-3-.41 0-.8.083-1.154.233C5.496 3.913 7.57 2 10 2c3.314 0 6 2.686 6 6 0 .864-.2 1.68-.556 2.4.346-.16.713-.273 1.104-.34.277-.047.562-.07.852-.07.21 0 .417.012.62.035C18.014 9.462 18 8.736 18 8v-1z"/></svg>
+              Reveal Love Note
+            </button>
+            <p id="loveNote" class="hidden-note">A thousand lifetimes would never change my choice—my heart will always choose you. You are my now and my always. 💖</p>
+          </div>
+
+          <!-- Memory Quiz -->
+          <div class="card-int">
+            <h3>Memory Quiz 🫶</h3>
+            <div class="quiz" id="quiz">
+              <!-- Question 1 -->
+              <p>Where was our first date gugu?</p>
+              <label><input type="radio" name="q1" value="a"> A coffee shop</label>
+              <label><input type="radio" name="q1" value="b"> At Madhur</label>
+              <label><input type="radio" name="q1" value="c"> At Kasaragod bus stand</label>
+              <label><input type="radio" name="q1" value="d"> At Bekachi</label>
+              
+              <!-- Question 2 (Add your question later) -->
+              <p style="margin-top:1rem">When was our first kiss?</p>
+              <label><input type="radio" name="q2" value="a"> 06/06/2018</label>
+              <label><input type="radio" name="q2" value="b"> 17/06/2018</label>
+              <label><input type="radio" name="q2" value="c"> 26/06/2018</label>
+              <label><input type="radio" name="q2" value="d"> 14/06/2018</label>
+              
+              <!-- Question 3 (Add your question later) -->
+              <p style="margin-top:1rem">What's my favorite thing about you?</p>
+              <label><input type="radio" name="q3" value="a"> Your smile</label>
+              <label><input type="radio" name="q3" value="b"> Your unconditional love</label>
+              <label><input type="radio" name="q3" value="c"> Your Beauty</label>
+              <label><input type="radio" name="q3" value="d"> All of the above</label>
+              
+              <!-- Question 4 (Add your question later) -->
+              <p style="margin-top:1rem">What is your favourite activity to do when we are together?</p>
+              <label><input type="radio" name="q4" value="a"> Singing</label>
+              <label><input type="radio" name="q4" value="b"> Movie</label>
+              <label><input type="radio" name="q4" value="c"> Dancing</label>
+              <label><input type="radio" name="q4" value="d"> Eating</label>
+              
+              <button class="btn-primary" id="quizBtn">Check Answers</button>
+              <div class="result" id="quizResult" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <!-- Day Counter -->
+          <div class="card-int">
+            <h3>Days Since We Met ⏳</h3>
+            <p class="section-sub" style="margin:0 0 .6rem">Counting every sunrise and sunset with you.</p>
+            <div class="counter" id="daysCounter">0 days</div>
+            
+          </div>
+        </div>
+
+        <!-- Second row of interactive cards -->
+        <div class="grid-3" style="margin-top: 16px;">
+          <!-- Love Calculator -->
+          <div class="card-int">
+            <h3>Love Calculator 💘</h3>
+            <p>How much do I love you?</p>
+            <div class="love-calculator">
+              <div class="love-meter">
+                <div class="love-fill" id="loveFill"></div>
+                <div class="love-percent" id="lovePercent">0%</div>
+              </div>
+              <button class="btn-primary" id="loveBtn">Measure Love</button>
+              <div class="love-message" id="loveMessage"></div>
+            </div>
+          </div>
+
+          <!-- Kiss Counter -->
+          <div class="card-int">
+            <h3>Virtual Kisses 💋</h3>
+            <p>Send me virtual kisses!</p>
+            <div class="kiss-counter">
+              <button class="kiss-btn" id="kissBtn">💋</button>
+              <div class="kiss-count" id="kissCount">0</div>
+              <p>Kisses sent</p>
+            </div>
+          </div>
+
+          <!-- Secret Message -->
+          <div class="card-int">
+            <h3>Secret Message 💌</h3>
+            <p>Write me a secret message</p>
+            <textarea id="secretMessage" placeholder="Type your message..." rows="3"></textarea>
+            <button class="btn-primary" id="saveMessageBtn" style="margin-top:8px;">Save Message</button>
+            <div id="messageSaved" style="display:none; margin-top:8px; color:var(--pink); font-style:italic;">Message saved in my heart ❤️</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Message -->
+    <section id="message">
+      <div class="container">
+        <h2 class="section-title">A Birthday Letter For You 💌</h2>
+        <div class="message">
+          <p id="typedMsg"></p>
+        </div>
+        <div class="surprise-wrap">
+          <button class="btn-primary" id="surpriseBtn">Tap for a Surprise</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+      <button class="close" id="closeLightbox" aria-label="Close">✕</button>
+      <img alt="Expanded photo" id="lightboxImg"/>
+    </div>
+
+    <div class="burst-area" id="burstArea" aria-hidden="true"></div>
+    <div class="overlay-text" id="overlayText"><h2>I Love You Forever ❤️</h2></div>
+  </main>
+
+  <footer>
+    Made with 💖 &lt;3 — Always yours
+  </footer>
+
+  <script>
+    /* =============================
+       Personalize these constants
+       ============================= */
+    // Put your real 'we first met' date (YYYY-MM-DD)
+    const FIRST_MET_DATE = '2018-05-28'; // ← EDIT THIS
+
+    // Correct quiz answer key (change to your memory!)
+    const QUIZ_ANSWERS = {
+      q1: 'c', // a/b/c/d
+      q2: 'b', // Add your answers for the new questions
+      q3: 'd',
+      q4: 'c'
+    };
+
+    /* =============================
+       Typing headline effect
+       ============================= */
+    const typingEl = document.getElementById('typing');
+    const headlineText = typingEl.textContent.trim();
+    function typeIt(el, text, speed=60){
+      el.textContent='';
+      let i=0; const tick=()=>{ if(i<=text.length){ el.textContent=text.slice(0,i); i++; setTimeout(tick, speed) } };
+      tick();
+    }
+    typeIt(typingEl, headlineText, 48);
+
+    // Smooth scroll button
+    document.getElementById('scrollBtn').addEventListener('click', () => {
+      document.getElementById('gallery').scrollIntoView({behavior:'smooth'});
+    });
+
+    /* =============================
+       Falling petals background
+       ============================= */
+    function spawnPetal(){
+      const p = document.createElement('div');
+      p.className = 'petal';
+      const size = 12 + Math.random()*14; p.style.width = p.style.height = size + 'px';
+      p.style.left = (Math.random()*100) + 'vw';
+      const dur = 8 + Math.random()*8; p.style.animationDuration = dur + 's, ' + (3 + Math.random()*3) + 's';
+      p.style.opacity = 0.75 + Math.random()*0.25;
+      document.body.appendChild(p);
+      p.addEventListener('animationend', ()=> p.remove());
+    }
+    setInterval(spawnPetal, 380);
+    for(let i=0;i<16;i++) setTimeout(spawnPetal, i*220);
+
+    /* =============================
+       Gallery lightbox
+       ============================= */
+    const grid = document.getElementById('galleryGrid');
+    const lightbox = document.getElementById('lightbox');
+    const lightImg = document.getElementById('lightboxImg');
+    const closeLb = document.getElementById('closeLightbox');
+
+    grid.addEventListener('click', (e)=>{
+      const img = e.target.closest('img');
+      if(!img) return;
+      lightImg.src = img.src;
+      lightbox.classList.add('open');
+    });
+    closeLb.addEventListener('click', ()=> lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) lightbox.classList.remove('open') });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lightbox.classList.remove('open') });
+
+    /* =============================
+       Click-the-Rose
+       ============================= */
+    const roseBtn = document.getElementById('roseBtn');
+    const note = document.getElementById('loveNote');
+    roseBtn.addEventListener('click', ()=>{
+      const show = !note.classList.contains('show');
+      note.classList.toggle('show', show);
+      roseBtn.setAttribute('aria-expanded', show);
+    });
+
+    /* =============================
+       Memory Quiz
+       ============================= */
+    const quizBtn = document.getElementById('quizBtn');
+    const quizResult = document.getElementById('quizResult');
+    quizBtn.addEventListener('click', ()=>{
+      let correct = 0;
+      let total = 0;
+      let feedback = [];
+      
+      // Check each question
+      for(const [question, answer] of Object.entries(QUIZ_ANSWERS)) {
+        const selected = document.querySelector(`input[name="${question}"]:checked`);
+        if(selected) {
+          total++;
+          if(selected.value === answer) {
+            correct++;
+          }
+        }
+      }
+      
+      if(total === 0) {
+        quizResult.textContent = 'Please answer at least one question, my love ✨';
+        return;
+      }
+      
+      const percentage = Math.round((correct / total) * 100);
+      if(percentage === 100) {
+        quizResult.textContent = 'Perfect! You know me so well! 💖';
+      } else if(percentage >= 75) {
+        quizResult.textContent = `Great job! You got ${correct} out of ${total} correct! 😊`;
+      } else if(percentage >= 50) {
+        quizResult.textContent = `Good try! ${correct} out of ${total} correct - let's make more memories! 💕`;
+      } else {
+        quizResult.textContent = `Let's spend more time together! You got ${correct} out of ${total} correct. 😘`;
+      }
+    });
+
+    /* =============================
+       Day Counter
+       ============================= */
+    function daysBetween(from){
+      const start = new Date(from + 'T00:00:00');
+      const now = new Date();
+      const ms = now - start; return Math.floor(ms / (1000*60*60*24));
+    }
+    const counterEl = document.getElementById('daysCounter');
+    function updateCounter(){ counterEl.textContent = daysBetween(FIRST_MET_DATE).toLocaleString() + ' days'; }
+    updateCounter(); setInterval(updateCounter, 60*60*1000);
+
+    /* =============================
+       Love Calculator (counts to infinity)
+       ============================= */
+    const loveBtn = document.getElementById('loveBtn');
+    const loveFill = document.getElementById('loveFill');
+    const lovePercent = document.getElementById('lovePercent');
+    const loveMessage = document.getElementById('loveMessage');
+    const messages = [
+      "My love for you is immeasurable!",
+      "You fill my heart completely!",
+      "My love grows every second!",
+      "You're my everything!",
+      "Infinite love for you!",
+      "Beyond numbers, beyond stars!"
+    ];
+
+    loveBtn.addEventListener('click', () => {
+      let percent = 0;
+      loveFill.style.width = '0%';
+      lovePercent.textContent = '0%';
+      loveMessage.textContent = '';
+      
+      const interval = setInterval(() => {
+        percent += 1 + Math.floor(percent/10); // Accelerates as it goes
+        if(percent > 100) {
+          percent = 100 + (percent - 100) * 0.5; // Slow down after 100%
+          loveMessage.textContent = messages[Math.floor(Math.random() * messages.length)];
+        }
+        loveFill.style.width = `${Math.min(percent, 100)}%`;
+        lovePercent.textContent = percent < 100 ? `${percent}%` : "∞%";
+        
+        // Never stop counting up
+        if(percent > 1000) percent = 1000;
+      }, 30);
+
+      // Change button text and disable during animation
+      loveBtn.textContent = "Calculating...";
+      loveBtn.disabled = true;
+      setTimeout(() => {
+        loveBtn.textContent = "Measure Again";
+        loveBtn.disabled = false;
+        clearInterval(interval);
+      }, 3000);
+    });
+
+    /* =============================
+       Kiss Counter
+       ============================= */
+    const kissBtn = document.getElementById('kissBtn');
+    const kissCount = document.getElementById('kissCount');
+    let kisses = 0;
+
+    kissBtn.addEventListener('click', () => {
+      kisses++;
+      kissCount.textContent = kisses;
+      
+      // Create a floating heart
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      const rect = kissBtn.getBoundingClientRect();
+      heart.style.left = `${rect.left + rect.width/2}px`;
+      heart.style.top = `${rect.top + rect.height/2}px`;
+      document.body.appendChild(heart);
+      
+      // Remove after animation
+      setTimeout(() => heart.remove(), 1400);
+    });
+
+    /* =============================
+       Secret Message
+       ============================= */
+    const saveMessageBtn = document.getElementById('saveMessageBtn');
+    const secretMessage = document.getElementById('secretMessage');
+    const messageSaved = document.getElementById('messageSaved');
+
+    saveMessageBtn.addEventListener('click', () => {
+      if(secretMessage.value.trim() === "") return;
+      
+      messageSaved.style.display = "block";
+      setTimeout(() => {
+        messageSaved.style.display = "none";
+      }, 3000);
+      
+      // You could save this to localStorage if you want persistence
+      // localStorage.setItem('secretMessage', secretMessage.value);
+    });
+
+    /* =============================
+       Special Message (typing)
+       ============================= */
+    const message = `
+My sweetest Gubbutti, 
+
+Every day with you feels like walking through a garden in full bloom—your smile is my sunshine, your laughter the fragrance that lingers in my soul, and your love the soft petals that embrace my heart. 🌹
+
+Happy 25th Birthday, my love ❤️✨ May your path always be sprinkled with roses, your days filled with endless giggles, and your heart overflowing with the same magic you bring into my life.
+
+Very soon, our biggest dream will come true—we’ll finally be living together, side by side, building our little world of love we’ve wished for so long. 🏡💕 And just as I believe in “us,” I believe in you—in all the incredible things waiting for you in your career and in life. I know you’ll shine brighter than ever. 🌟
+
+Today, tomorrow, and forever, I choose you—only you, my Gugu. 💞
+
+Always your's
+Deepu
+    `;
+    const msgEl = document.getElementById('typedMsg');
+    function typeBlock(el, text, speed=22){
+      el.textContent=''; let i=0; const chars=[...text];
+      (function loop(){ if(i<=chars.length){ el.textContent = text.slice(0,i); i++; setTimeout(loop, speed); } })();
+    }
+    typeBlock(msgEl, message, 18);
+
+    /* =============================
+       Final Surprise (burst)
+       ============================= */
+    const burstArea = document.getElementById('burstArea');
+    const overlayText = document.getElementById('overlayText');
+    function spawnHeart(x,y){
+      const h = document.createElement('div'); h.className='heart';
+      h.style.left = x + (Math.random()*40-20) + 'px';
+      h.style.top  = y + (Math.random()*20-10) + 'px';
+      h.style.transform = `translate(-50%, -50%) rotate(45deg)`;
+      h.style.opacity = 0.95;
+      burstArea.appendChild(h);
+      setTimeout(()=>h.remove(), 1400);
+    }
+    function burstPetals(x,y, n=24){
+      for(let i=0;i<n;i++){
+        const p=document.createElement('div'); p.className='petal';
+        p.style.left = x + 'px'; p.style.top = y + 'px';
+        const size = 10 + Math.random()*16; p.style.width=p.style.height=size+'px';
+        const angle = Math.random()*360; const dist = 40 + Math.random()*140;
+        const tx = Math.cos(angle)*dist; const ty = Math.sin(angle)*dist - 120;
+        p.style.animation = 'none';
+        p.style.transition = 'transform 1.2s cubic-bezier(.16,.67,.43,1), opacity 1.2s';
+        document.body.appendChild(p);
+        requestAnimationFrame(()=>{
+          p.style.transform = `translate(${tx}px, ${ty}px) rotate(${360*Math.random()}deg)`;
+          p.style.opacity = 0;
+        });
+        setTimeout(()=>p.remove(), 1300);
+      }
+    }
+    document.getElementById('surpriseBtn').addEventListener('click', (e)=>{
+      const rect = e.target.getBoundingClientRect();
+      const x = rect.left + rect.width/2; const y = rect.top + rect.height/2 + window.scrollY;
+      for(let i=0;i<28;i++) setTimeout(()=>spawnHeart(x,y), i*18);
+      burstPetals(x,y, 30);
+      overlayText.classList.add('show');
+      setTimeout(()=> overlayText.classList.remove('show'), 2200);
+    });
+
+    /* =============================
+       Background Music: start automatically
+       ============================= */
+    const audio = document.getElementById('bg-music');
+    // Try to play automatically (may not work on all browsers)
+    audio.volume = 0.3;
+    const playPromise = audio.play();
+    
+    // If autoplay fails, set up interaction-based play
+    if (playPromise !== undefined) {
+      playPromise.catch(error => {
+        // Autoplay was prevented - set up interaction-based play
+        function startMusicOnInteraction() {
+          audio.play().then(() => {
+            // Success - remove listeners
+            document.removeEventListener('click', startMusicOnInteraction);
+            document.removeEventListener('touchstart', startMusicOnInteraction);
+          }).catch(() => {});
+        }
+        
+        // Add listeners for first interaction
+        document.addEventListener('click', startMusicOnInteraction, { once: true });
+        document.addEventListener('touchstart', startMusicOnInteraction, { once: true });
+      });
+    }
+
+    /* Accessibility: reduce motion preference */
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function applyReduceMotion(){
+      const reduce = mediaQuery.matches;
+      document.body.style.setProperty('--blur', reduce ? '0px' : '24px');
+      // If reduce, slow or stop spawning petals
+      if(reduce){
+        // No continuous petals
+        try{ clearInterval(window.__petalInterval); }catch(e){}
+      }
+    }
+    applyReduceMotion(); 
+    mediaQuery.addEventListener('change', applyReduceMotion);
+  </script>
+</body>
+</html>
